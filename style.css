@@ -9,6 +9,7 @@ body {
     background-color: #0F0804;
 }
 
+
 .header {
     height: 100vh;
     background-image: url(images/13.png);
@@ -18,7 +19,7 @@ body {
 }
 
 .header__overlay {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.50) 80.49%, #0F0804 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 80%, #0F0804 100%);
     height: 100%;
     width: 100%;
     display: flex;
@@ -37,7 +38,7 @@ body {
 .header__link {
     height: 90px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.17);
+    background: rgba(255,255,255,0.17);
     backdrop-filter: blur(11.5px);
 }
 
@@ -49,27 +50,105 @@ body {
     text-decoration: none;
     color: white;
     font-size: 24px;
+
     width: 100%;
     height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .gallery {
-    /* Выключает точки у списка */
-    list-style-type: none;
+    list-style: none;
     margin: 173px auto;
+    max-width: 920px;
 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .gallery__item {
-
+    position: relative;
+    width: 280px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .image {
-    
+    width: 100%;
+    display: block;
 }
+
+
+.card__actions {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    display: flex;
+    gap: 8px;
+
+    z-index: 3;
+}
+
+.like,
+.favorite {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.6);
+    color: white;
+
+    border-radius: 50%;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.like:hover {
+    color: red;
+}
+
+.favorite:hover {
+    color: gold;
+}
+
+.card__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s;
+}
+
+.card__text {
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.gallery__item:hover .card__overlay {
+    background: rgba(0,0,0,0.6);
+}
+
+.gallery__item:hover .card__text {
+    opacity: 1;
+}
+
 
 .footer {
     height: 100vh;
@@ -83,7 +162,7 @@ body {
     display: flex;
     height: 100%;
     width: 100%;
-    background: linear-gradient(180deg, #0F0804 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(180deg, #0F0804 0%, rgba(0,0,0,0.6) 100%);
 }
 
 .footer__text {
